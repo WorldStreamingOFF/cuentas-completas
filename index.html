@@ -501,8 +501,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   border: 0;
   border-radius: 0;
   background:
-    linear-gradient(90deg, rgba(2,12,17,.97) 0%, rgba(2,13,18,.92) 30%, rgba(3,15,20,.63) 53%, rgba(3,15,20,.18) 75%, rgba(3,15,20,.22) 100%),
-    linear-gradient(0deg, rgba(2,12,17,.42), transparent 48%);
+    linear-gradient(90deg, rgba(2,12,17,.82) 0%, rgba(2,13,18,.72) 28%, rgba(3,15,20,.40) 52%, rgba(3,15,20,.10) 75%, rgba(3,15,20,.12) 100%),
+    linear-gradient(0deg, rgba(2,12,17,.22), transparent 48%);
 }
 .hero-visual img {
   position: absolute;
@@ -515,7 +515,7 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   object-fit: cover;
   object-position: 64% center;
   border-radius: 0;
-  filter: saturate(1.04) contrast(1.02);
+  filter: brightness(1.08) saturate(1.08) contrast(1.01);
 }
 .hero-glow { display: none; }
 .hero-copy {
@@ -559,8 +559,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   .hero-visual { min-height: 0; padding: 0; }
   .hero-visual::before {
     background:
-      linear-gradient(180deg, rgba(2,12,17,.88) 0%, rgba(2,13,18,.72) 44%, rgba(2,13,18,.30) 68%, rgba(2,13,18,.42) 100%),
-      linear-gradient(90deg, rgba(2,12,17,.70), rgba(2,12,17,.16));
+      linear-gradient(180deg, rgba(2,12,17,.70) 0%, rgba(2,13,18,.50) 42%, rgba(2,13,18,.12) 68%, rgba(2,13,18,.22) 100%),
+      linear-gradient(90deg, rgba(2,12,17,.46), rgba(2,12,17,.06));
   }
   .hero-visual img {
     width: 100%;
@@ -605,10 +605,11 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
 }
 
 @media (max-width: 560px) {
-  .hero-shell, .hero-grid { min-height: 650px; }
+  /* En celular, el alto del hero lo define el contenido: sin espacio negro sobrante */
+  .hero-shell, .hero-grid { min-height: 0; }
   .hero-copy {
-    min-height: 650px;
-    padding: 24px 18px 245px;
+    min-height: 0;
+    padding: 24px 18px 30px;
   }
   .eyebrow { font-size: .64rem; padding: 8px 10px; }
   .hero h1 { font-size: clamp(2.5rem, 12vw, 3.25rem); line-height: .94; }
@@ -1068,4 +1069,3 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
