@@ -623,99 +623,90 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
 
 
 
-/* CATÁLOGO POR PLATAFORMA — tarjetas amplias con identidad propia */
+
+/* CATÁLOGO 2.0 — estética comercial inspirada en el catálogo de cliente final */
 .catalog-grid.platform-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
 }
 .platform-card {
-  --accent: #52f2c2;
-  position: relative;
-  min-width: 0;
-  min-height: 318px;
-  padding: 24px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 20px 46px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06);
-  display: flex;
-  flex-direction: column;
-  isolation: isolate;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  --accent:#36d9ed;
+  --card-bg:#0d1a22;
+  position:relative;
+  min-width:0;
+  min-height:390px;
+  padding:18px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background:var(--card-bg);
+  box-shadow:0 18px 42px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04);
+  display:flex;
+  flex-direction:column;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+  isolation:isolate;
 }
 .platform-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(145deg, rgba(255,255,255,.08), transparent 42%);
-  pointer-events: none;
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),transparent 38%);
 }
 .platform-card::after {
-  content: "";
-  position: absolute;
-  width: 240px;
-  height: 240px;
-  right: -90px;
-  top: -95px;
-  z-index: -1;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: .14;
-  filter: blur(18px);
-  pointer-events: none;
+  content:"";
+  position:absolute;
+  width:180px;
+  height:340px;
+  right:-78px;
+  top:86px;
+  z-index:-1;
+  transform:skewX(-25deg);
+  background:rgba(255,255,255,.035);
+  pointer-events:none;
 }
-.platform-card:hover { transform: translateY(-4px); box-shadow: 0 28px 58px rgba(0,0,0,.32); border-color: rgba(255,255,255,.24); }
-.platform-card.netflix { --accent:#e50914; background: linear-gradient(135deg, #090909 0%, #171010 55%, #35090c 100%); }
-.platform-card.disney-card { --accent:#55d7ff; background: linear-gradient(135deg, #051631 0%, #082c67 58%, #0c5590 100%); }
-.platform-card.max-platinum { --accent:#9d6cff; background: linear-gradient(135deg, #081040 0%, #171b91 48%, #5620a6 100%); }
-.platform-card.max-standard { --accent:#54a8ff; background: linear-gradient(135deg, #07162d 0%, #0b3b74 55%, #0a6097 100%); }
-.platform-card.paramount-premium { --accent:#77d7ff; background: linear-gradient(135deg, #031a4c 0%, #064b9d 55%, #087bd0 100%); }
-.platform-card.paramount-standard { --accent:#59a9ff; background: linear-gradient(135deg, #06152f 0%, #0a326c 55%, #0d5798 100%); }
-.platform-card.paramount-basic { --accent:#7c9fe8; background: linear-gradient(135deg, #071323 0%, #102a51 56%, #1d4679 100%); }
-.platform-card.crunchy-card { --accent:#ff8b43; background: linear-gradient(135deg, #24100b 0%, #6c2812 52%, #c14a18 100%); }
-.platform-card.vix-card { --accent:#ff8247; background: linear-gradient(135deg, #25102f 0%, #6b1f61 48%, #c44635 100%); }
-.platform-card.spotify-card { --accent:#1ed760; background: linear-gradient(135deg, #06180e 0%, #0b3f25 56%, #0d6b37 100%); border-color: rgba(30,215,96,.46); box-shadow: 0 22px 54px rgba(10,92,47,.32), inset 0 1px 0 rgba(255,255,255,.07); }
-.platform-card-head { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:22px; }
-.platform-logo { font-weight: 950; letter-spacing:-.04em; font-size:1.72rem; color:#fff; text-shadow:0 3px 16px rgba(0,0,0,.28); }
-.netflix-logo { color:#e50914; font-size:1.5rem; letter-spacing:.06em; }
-.disney-logo { font-size:1.7rem; font-style:italic; }
-.max-logo { font-size:2.2rem; letter-spacing:-.08em; }
-.paramount-logo { font-size:1.45rem; }
-.crunchy-logo { font-size:1.45rem; }
-.vix-logo { font-size:2rem; letter-spacing:-.02em; }
-.spotify-logo { font-size:1.7rem; }
-.plan-chip { flex:0 0 auto; font-size:.61rem; font-weight:900; letter-spacing:.1em; color:#fff; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.22); backdrop-filter:blur(8px); padding:7px 9px; border-radius:999px; }
-.platform-main { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
-.platform-label { display:block; color:rgba(255,255,255,.7); font-size:.64rem; font-weight:900; letter-spacing:.12em; margin-bottom:5px; }
-.platform-main h3 { margin:0; font-size:1.45rem; letter-spacing:-.035em; }
-.platform-price { flex:0 0 auto; display:grid; text-align:right; }
-.platform-price strong { color:#fff; font-size:1.65rem; line-height:1; }
-.platform-price span { color:rgba(255,255,255,.74); font-weight:800; margin-top:5px; font-size:.85rem; }
-.platform-card > p { margin:14px 0 15px; color:rgba(255,255,255,.78); font-size:.84rem; min-height:40px; }
-.platform-specs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
-.platform-specs span { border:1px solid rgba(255,255,255,.14); background:rgba(0,0,0,.18); color:#f4fbfa; border-radius:999px; padding:7px 10px; font-size:.68rem; font-weight:750; backdrop-filter:blur(6px); }
-.platform-card .service-btn { margin-top:auto; min-height:44px; border-color:color-mix(in srgb, var(--accent) 58%, white 10%); background:rgba(0,0,0,.24); color:#fff; }
-.platform-card .service-btn:hover { background:var(--accent); color:#061116; border-color:var(--accent); }
-.netflix .service-btn:hover { color:#fff; }
-.popular-ribbon { position:absolute; top:0; left:24px; right:24px; transform:translateY(-1px); background:linear-gradient(90deg,#1ed760,#8cffaf); color:#04140b; text-align:center; font-size:.65rem; font-weight:950; letter-spacing:.09em; padding:7px 10px; border-radius:0 0 12px 12px; box-shadow:0 9px 22px rgba(30,215,96,.22); }
-.spotify-card .platform-card-head { margin-top:20px; }
+.platform-card:hover { transform:translateY(-6px); border-color:color-mix(in srgb,var(--accent) 42%,white 8%); box-shadow:0 28px 58px rgba(0,0,0,.34),0 0 0 1px color-mix(in srgb,var(--accent) 22%,transparent); }
+.platform-card.netflix { --accent:#e50914; --card-bg:linear-gradient(145deg,#2b1119 0%,#160d14 62%,#090b12 100%); }
+.platform-card.disney-card { --accent:#56d8ff; --card-bg:linear-gradient(145deg,#203c5f 0%,#13263f 60%,#09131f 100%); }
+.platform-card.max-platinum { --accent:#9e7cff; --card-bg:linear-gradient(145deg,#38265c 0%,#211840 60%,#0e0c1b 100%); }
+.platform-card.max-standard { --accent:#6dafff; --card-bg:linear-gradient(145deg,#263d61 0%,#172a48 58%,#0b1422 100%); }
+.platform-card.paramount-premium { --accent:#69c8ff; --card-bg:linear-gradient(145deg,#173b63 0%,#0e2b4a 60%,#081522 100%); }
+.platform-card.paramount-standard { --accent:#5da8ff; --card-bg:linear-gradient(145deg,#17314f 0%,#10243d 60%,#08131f 100%); }
+.platform-card.paramount-basic { --accent:#7d98d8; --card-bg:linear-gradient(145deg,#202c45 0%,#151f33 60%,#0b111d 100%); }
+.platform-card.crunchy-card { --accent:#ff8a3d; --card-bg:linear-gradient(145deg,#4a3029 0%,#2c1d1c 60%,#120d0f 100%); }
+.platform-card.vix-card { --accent:#ff7b45; --card-bg:linear-gradient(145deg,#39224e 0%,#281933 55%,#15101d 100%); }
+.platform-card.spotify-card { --accent:#1ed760; --card-bg:linear-gradient(145deg,#173c2a 0%,#0d2b1d 58%,#07150e 100%); border-color:rgba(30,215,96,.38); }
+.card-topline { min-height:26px; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
+.card-badge { display:inline-flex; align-items:center; min-height:24px; padding:0 10px; border-radius:999px; background:rgba(255,255,255,.10); color:#dffcff; font-size:.62rem; font-weight:900; letter-spacing:.03em; }
+.card-badge.hot { background:linear-gradient(90deg,#1ed760,#79f09e); color:#052111; box-shadow:0 8px 22px rgba(30,215,96,.18); }
+.availability { margin-left:auto; display:inline-flex; align-items:center; gap:6px; color:#31eb72; font-size:.63rem; font-weight:850; }
+.availability::before { content:""; width:9px; height:9px; border-radius:50%; background:#18dc52; box-shadow:0 0 12px rgba(24,220,82,.7); }
+.platform-logo-tile { width:74px; height:74px; margin:2px auto 14px; border-radius:17px; display:grid; place-items:center; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.07); box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 24px rgba(0,0,0,.18); }
+.platform-logo { font-weight:950; letter-spacing:-.04em; color:#fff; text-align:center; text-shadow:0 4px 18px rgba(0,0,0,.28); line-height:.9; }
+.netflix-logo { color:#e50914; font-size:2.8rem; font-family:Arial Black,Arial,sans-serif; }
+.disney-logo { font-size:1.25rem; font-style:italic; }
+.max-logo { font-size:2rem; letter-spacing:-.09em; }
+.paramount-logo { font-size:.95rem; letter-spacing:-.03em; }
+.crunchy-logo { color:#ff7b27; font-size:.9rem; letter-spacing:-.03em; }
+.vix-logo { color:#ff6f2c; font-size:1.65rem; }
+.spotify-logo { color:#1ed760; font-size:1.2rem; }
+.platform-card h3 { margin:0 0 5px; font-size:1.28rem; letter-spacing:-.035em; }
+.platform-price-inline { color:#5feaff; font-weight:950; font-size:1rem; margin-bottom:11px; }
+.spotify-card .platform-price-inline { color:#69f598; }
+.netflix .platform-price-inline { color:#ff6670; }
+.platform-card > p { margin:0 0 12px; color:#d0dadd; font-size:.76rem; line-height:1.48; }
+.feature-list { margin:0 0 16px; padding-left:17px; display:grid; gap:5px; color:#eef6f7; font-size:.74rem; }
+.feature-list li::marker { color:var(--accent); }
+.platform-card .service-btn { margin-top:auto; min-height:44px; border:0; border-radius:12px; padding:0 14px; background:linear-gradient(135deg,#46e0ef,#25c5e4); color:#03161b; font-weight:950; justify-content:center; box-shadow:0 11px 24px rgba(35,203,224,.18); }
+.platform-card .service-btn:hover { transform:translateY(-1px); background:linear-gradient(135deg,#62ebf5,#37d5ed); color:#021419; }
+.spotify-card .service-btn { background:linear-gradient(135deg,#49eb83,#1ed760); color:#052012; box-shadow:0 11px 24px rgba(30,215,96,.18); }
+.netflix .service-btn { background:linear-gradient(135deg,#ff3b44,#e50914); color:#fff; box-shadow:0 11px 24px rgba(229,9,20,.18); }
 .spec-note { margin-top:20px; color:var(--muted); font-size:.72rem; line-height:1.55; }
 
-@media (max-width: 860px) {
-  .catalog-grid.platform-grid { grid-template-columns: 1fr; gap:16px; }
-  .platform-card { min-height:0; padding:20px; border-radius:20px; }
-}
-@media (max-width: 560px) {
-  .platform-main { align-items:flex-start; }
-  .platform-main h3 { font-size:1.28rem; }
-  .platform-price strong { font-size:1.4rem; }
-  .platform-card > p { min-height:0; }
-  .platform-logo { font-size:1.52rem; }
-  .max-logo { font-size:1.95rem; }
-  .platform-specs span { font-size:.64rem; padding:6px 8px; }
-  .popular-ribbon { left:18px; right:18px; }
-}
+@media (max-width:1180px){ .catalog-grid.platform-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
+@media (max-width:860px){ .catalog-grid.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;} .platform-card{min-height:372px;padding:17px;border-radius:19px;} }
+@media (max-width:560px){ .catalog-grid.platform-grid{grid-template-columns:1fr;gap:14px;} .platform-card{min-height:0;padding:18px;} .platform-logo-tile{width:70px;height:70px;margin-bottom:12px;} .platform-card h3{font-size:1.22rem;} .platform-card > p{font-size:.75rem;} .feature-list{font-size:.73rem;} }
 
 </style>
 </head>
@@ -806,164 +797,103 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
 
         <div class="catalog-grid platform-grid">
           <article class="platform-card netflix reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo netflix-logo">NETFLIX</div>
-              <span class="plan-chip">PREMIUM</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CUENTA COMPLETA</span><h3>Netflix Premium</h3></div>
-              <div class="platform-price"><strong>S/ 45</strong><span>$13.30</span></div>
-            </div>
-            <p>Máxima experiencia de Netflix para imagen, audio y reproducción simultánea.</p>
-            <div class="platform-specs">
-              <span>4 simultáneos</span><span>4K UHD + HDR</span><span>Descargas en 6 dispositivos</span><span>Audio espacial</span>
-            </div>
-            <a class="service-btn" data-service="Netflix Premium" href="#">Solicitar Netflix <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">PREMIUM</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo netflix-logo">N</div></div>
+            <h3>Netflix Premium</h3>
+            <div class="platform-price-inline">S/45.00 · $13.30</div>
+            <p>Máxima experiencia de Netflix para disfrutar series y películas con la mejor calidad disponible.</p>
+            <ul class="feature-list"><li>4 dispositivos simultáneos</li><li>4K UHD + HDR</li><li>Descargas en hasta 6 dispositivos</li><li>Audio espacial compatible</li></ul>
+            <a class="service-btn" data-service="Netflix Premium" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card disney-card reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo disney-logo">Disney+</div>
-              <span class="plan-chip">PREMIUM</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CUENTA COMPLETA</span><h3>Disney+ Premium</h3></div>
-              <div class="platform-price"><strong>S/ 24</strong><span>$7.00</span></div>
-            </div>
-            <p>Entretenimiento Premium con Disney, Pixar, Marvel, Star Wars y deportes.</p>
-            <div class="platform-specs">
-              <span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span><span>ESPN</span>
-            </div>
-            <a class="service-btn" data-service="Disney+ Premium" href="#">Solicitar Disney+ <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">PREMIUM</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo disney-logo">Disney+</div></div>
+            <h3>Disney+ Premium</h3>
+            <div class="platform-price-inline">S/24.00 · $7.00</div>
+            <p>Disney, Pixar, Marvel, Star Wars y deportes en una cuenta completa pensada para disfrutar más.</p>
+            <ul class="feature-list"><li>4 dispositivos simultáneos</li><li>Hasta 4K UHD / HDR</li><li>Dolby Atmos compatible</li><li>Contenido ESPN incluido según región</li></ul>
+            <a class="service-btn" data-service="Disney+ Premium" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card max-platinum reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo max-logo">max</div>
-              <span class="plan-chip">PLATINO</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">HBO / MAX</span><h3>HBO Max Platino</h3></div>
-              <div class="platform-price"><strong>S/ 10</strong><span>$3.00</span></div>
-            </div>
-            <p>Plan superior de Max para disfrutar contenido compatible en máxima calidad.</p>
-            <div class="platform-specs">
-              <span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span><span>Renovable</span>
-            </div>
-            <a class="service-btn" data-service="HBO Max Platino" href="#">Solicitar Platino <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">PLATINO</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo max-logo">max</div></div>
+            <h3>HBO Max Platino</h3>
+            <div class="platform-price-inline">S/10.00 · $3.00</div>
+            <p>La opción superior de Max para quienes buscan más dispositivos y máxima calidad de imagen.</p>
+            <ul class="feature-list"><li>4 dispositivos simultáneos</li><li>4K UHD / HDR</li><li>Dolby Atmos compatible</li><li>Cuenta renovable</li></ul>
+            <a class="service-btn" data-service="HBO Max Platino" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card max-standard reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo max-logo">max</div>
-              <span class="plan-chip">ESTÁNDAR</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">HBO / MAX</span><h3>HBO Max Estándar</h3></div>
-              <div class="platform-price"><strong>S/ 7</strong><span>$2.10</span></div>
-            </div>
-            <p>Plan equilibrado para series y películas de Max en alta definición.</p>
-            <div class="platform-specs">
-              <span>2 simultáneos</span><span>Full HD 1080p</span><span>30 descargas</span><span>Renovable</span>
-            </div>
-            <a class="service-btn" data-service="HBO Max Estándar" href="#">Solicitar Estándar <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">ESTÁNDAR</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo max-logo">max</div></div>
+            <h3>HBO Max Estándar</h3>
+            <div class="platform-price-inline">S/7.00 · $2.10</div>
+            <p>Una alternativa equilibrada para disfrutar películas y series de Max con excelente definición.</p>
+            <ul class="feature-list"><li>2 dispositivos simultáneos</li><li>Full HD 1080p</li><li>Hasta 30 descargas</li><li>Cuenta renovable</li></ul>
+            <a class="service-btn" data-service="HBO Max Estándar" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card paramount-premium reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo paramount-logo">Paramount+</div>
-              <span class="plan-chip">PREMIUM</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CUENTA COMPLETA</span><h3>Paramount+ Premium</h3></div>
-              <div class="platform-price"><strong>S/ 12</strong><span>$3.60</span></div>
-            </div>
-            <p>La opción superior de Paramount+ con prestaciones avanzadas de video y audio.</p>
-            <div class="platform-specs">
-              <span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span><span>Descargas</span>
-            </div>
-            <a class="service-btn" data-service="Paramount+ Premium" href="#">Solicitar Premium <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">PREMIUM</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo paramount-logo">Paramount+</div></div>
+            <h3>Paramount+ Premium</h3>
+            <div class="platform-price-inline">S/12.00 · $3.60</div>
+            <p>La experiencia más completa de Paramount+ con prestaciones superiores de video y audio.</p>
+            <ul class="feature-list"><li>4 dispositivos simultáneos</li><li>4K UHD / HDR</li><li>Dolby Atmos compatible</li><li>Descargas disponibles</li></ul>
+            <a class="service-btn" data-service="Paramount+ Premium" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card paramount-standard reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo paramount-logo">Paramount+</div>
-              <span class="plan-chip">STANDARD</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CUENTA COMPLETA</span><h3>Paramount+ Standard</h3></div>
-              <div class="platform-price"><strong>S/ 7</strong><span>$2.10</span></div>
-            </div>
-            <p>Plan Standard con reproducción Full HD y descargas para ver sin conexión.</p>
-            <div class="platform-specs">
-              <span>2 simultáneos</span><span>Full HD</span><span>Descargas</span><span>Renovable</span>
-            </div>
-            <a class="service-btn" data-service="Paramount+ Standard" href="#">Solicitar Standard <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">STANDARD</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo paramount-logo">Paramount+</div></div>
+            <h3>Paramount+ Standard</h3>
+            <div class="platform-price-inline">S/7.00 · $2.10</div>
+            <p>Un plan equilibrado con Full HD y funciones pensadas para el entretenimiento diario.</p>
+            <ul class="feature-list"><li>2 dispositivos simultáneos</li><li>Full HD</li><li>Descargas disponibles</li><li>Cuenta renovable</li></ul>
+            <a class="service-btn" data-service="Paramount+ Standard" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card paramount-basic reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo paramount-logo">Paramount+</div>
-              <span class="plan-chip">BASIC</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CUENTA COMPLETA</span><h3>Paramount+ Basic</h3></div>
-              <div class="platform-price"><strong>S/ 5</strong><span>$1.50</span></div>
-            </div>
-            <p>La alternativa de entrada de Paramount+ para un dispositivo a la vez.</p>
-            <div class="platform-specs">
-              <span>1 simultáneo</span><span>Full HD</span><span>Basic</span><span>Con anuncios</span>
-            </div>
-            <a class="service-btn" data-service="Paramount+ Basic" href="#">Solicitar Basic <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">BASIC</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo paramount-logo">Paramount+</div></div>
+            <h3>Paramount+ Basic</h3>
+            <div class="platform-price-inline">S/5.00 · $1.50</div>
+            <p>La opción de entrada de Paramount+ para quien busca una alternativa práctica y económica.</p>
+            <ul class="feature-list"><li>1 dispositivo simultáneo</li><li>Full HD según dispositivo</li><li>Plan Basic</li><li>Puede incluir anuncios</li></ul>
+            <a class="service-btn" data-service="Paramount+ Basic" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card crunchy-card reveal" data-category="anime">
-            <div class="platform-card-head">
-              <div class="platform-logo crunchy-logo">Crunchyroll</div>
-              <span class="plan-chip">MEGA FAN</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">ANIME PREMIUM</span><h3>Crunchyroll Mega Fan</h3></div>
-              <div class="platform-price"><strong>S/ 7</strong><span>$2.10</span></div>
-            </div>
-            <p>Anime sin anuncios con reproducción en varios dispositivos y contenido offline.</p>
-            <div class="platform-specs">
-              <span>4 simultáneos</span><span>Máxima calidad disponible</span><span>Sin anuncios</span><span>Descargas</span>
-            </div>
-            <a class="service-btn" data-service="Crunchyroll Mega Fan" href="#">Solicitar Mega Fan <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">MEGA FAN</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo crunchy-logo">Crunchyroll</div></div>
+            <h3>Crunchyroll Mega Fan</h3>
+            <div class="platform-price-inline">S/7.00 · $2.10</div>
+            <p>Anime sin pausas, contenido offline y reproducción simultánea para los verdaderos fans.</p>
+            <ul class="feature-list"><li>4 dispositivos simultáneos</li><li>Máxima calidad disponible</li><li>Sin anuncios</li><li>Descargas offline</li></ul>
+            <a class="service-btn" data-service="Crunchyroll Mega Fan" href="#">Solicitar ahora 🚀</a>
           </article>
 
           <article class="platform-card vix-card reveal" data-category="streaming">
-            <div class="platform-card-head">
-              <div class="platform-logo vix-logo">ViX</div>
-              <span class="plan-chip">PREMIUM</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">CONTENIDO LATINO</span><h3>ViX Premium</h3></div>
-              <div class="platform-price"><strong>S/ 4</strong><span>$1.20</span></div>
-            </div>
-            <p>Contenido latino, estrenos, deportes y canales en vivo en una sola cuenta.</p>
-            <div class="platform-specs">
-              <span>3 simultáneos</span><span>Contenido Premium</span><span>Canales en vivo</span><span>Renovable</span>
-            </div>
-            <a class="service-btn" data-service="ViX Premium" href="#">Solicitar ViX <span>→</span></a>
+            <div class="card-topline"><span class="card-badge">PREMIUM</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo vix-logo">ViX</div></div>
+            <h3>ViX Premium</h3>
+            <div class="platform-price-inline">S/4.00 · $1.20</div>
+            <p>Contenido latino, estrenos, deportes y canales en vivo reunidos en una misma cuenta.</p>
+            <ul class="feature-list"><li>3 dispositivos simultáneos</li><li>Contenido Premium</li><li>Canales en vivo</li><li>Cuenta renovable</li></ul>
+            <a class="service-btn" data-service="ViX Premium" href="#">Solicitar ahora 🚀</a>
           </article>
 
-          <article class="platform-card spotify-card popular reveal" data-category="music">
-            <div class="popular-ribbon">★ MÁS VENDIDO AHORA</div>
-            <div class="platform-card-head">
-              <div class="platform-logo spotify-logo">Spotify</div>
-              <span class="plan-chip">PREMIUM</span>
-            </div>
-            <div class="platform-main">
-              <div><span class="platform-label">MÚSICA PREMIUM</span><h3>Spotify Premium</h3></div>
-              <div class="platform-price"><strong>S/ 5</strong><span>$1.50</span></div>
-            </div>
-            <p>Nuestro servicio más solicitado actualmente: música sin anuncios y disponible offline.</p>
-            <div class="platform-specs">
-              <span>1 reproducción</span><span>Audio Premium</span><span>Sin anuncios</span><span>Offline</span>
-            </div>
-            <a class="service-btn" data-service="Spotify Premium" href="#">Solicitar Spotify <span>→</span></a>
+          <article class="platform-card spotify-card reveal" data-category="music">
+            <div class="card-topline"><span class="card-badge hot">★ Más vendido</span><span class="availability">Disponible</span></div>
+            <div class="platform-logo-tile"><div class="platform-logo spotify-logo">Spotify</div></div>
+            <h3>Spotify Premium</h3>
+            <div class="platform-price-inline">S/5.00 · $1.50</div>
+            <p>Nuestro servicio más solicitado actualmente: música sin anuncios y disponible también offline.</p>
+            <ul class="feature-list"><li>1 reproducción activa</li><li>Audio Premium</li><li>Sin anuncios</li><li>Descargas offline</li></ul>
+            <a class="service-btn" data-service="Spotify Premium" href="#">Solicitar ahora 🚀</a>
           </article>
         </div>
         <p class="spec-note">* La calidad de video/audio, las descargas y algunas funciones dependen del título, país, plan, conexión y dispositivo compatible. Los precios mostrados corresponden al catálogo de WorldStreamingOFF.</p>
