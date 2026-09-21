@@ -99,7 +99,7 @@ img { display: block; max-width: 100%; }
 .hero { position: relative; overflow: visible; padding: 62px 0 0; }
 .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(82,242,194,.5), transparent); }
 .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; min-height: 590px; align-items: center; gap: 40px; }
-.hero-copy { padding: 28px 0 70px; position: relative; z-index: 2; }
+.hero-copy { padding: 38px 0 22px 42px; position: relative; z-index: 2; }
 .eyebrow, .kicker { color: var(--mint); font-size: .73rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(82,242,194,.22); background: rgba(82,242,194,.06); border-radius: 999px; padding: 9px 13px; }
 .eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px var(--mint); }
@@ -107,14 +107,14 @@ img { display: block; max-width: 100%; }
 .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--mint), var(--cyan)); color: transparent; background-clip: text; -webkit-background-clip: text; }
 .hero-lead { color: #c3d2d4; font-size: 1.1rem; max-width: 650px; margin: 0; }
 .hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
-.hero-trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; max-width: 720px; }
+.hero-trust { display: none; }
 .hero-trust > div { display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 15px; }
 .hero-trust b { width: 35px; height: 35px; border-radius: 10px; display: grid; place-items: center; background: rgba(82,242,194,.09); color: var(--mint); }
 .hero-trust span { display: grid; }
 .hero-trust strong { font-size: .82rem; }
 .hero-trust small { color: var(--muted); font-size: .7rem; margin-top: 3px; }
 
-.hero-visual { position: relative; align-self: stretch; min-height: 590px; display: flex; align-items: flex-end; justify-content: center; }
+.hero-visual { position: relative; align-self: stretch; min-height: 590px; display: flex; align-items: flex-end; justify-content: center; padding-right: 18px; }
 .hero-visual::before { content: ""; position: absolute; inset: 9% 0 7% 6%; border-radius: 46% 46% 24% 24%; background: radial-gradient(circle at 50% 30%, rgba(82,242,194,.22), rgba(17,59,72,.12) 47%, transparent 74%); border: 1px solid rgba(82,242,194,.12); }
 .hero-glow { position: absolute; width: 390px; height: 390px; border-radius: 50%; background: rgba(68, 235, 197, .16); filter: blur(90px); top: 10%; }
 .hero-visual img { position: relative; z-index: 2; max-height: 590px; width: auto; filter: drop-shadow(0 34px 55px rgba(0,0,0,.34)); }
@@ -203,7 +203,7 @@ img { display: block; max-width: 100%; }
 .benefit-ribbon strong { font-size: .81rem; }
 .benefit-ribbon small { color: var(--muted); font-size: .68rem; margin-top: 3px; }
 
-.catalog-section { padding-top: 120px; }
+.catalog-section { padding-top: 86px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 32px; }
 .section-heading h2, .trust-card h2, .support-copy h2, .faq-intro h2, .final-cta h2 { margin: 7px 0 6px; font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.04; letter-spacing: -.045em; }
 .section-heading p, .trust-card > p, .support-copy > p, .faq-intro > p, .final-cta p { color: var(--muted); margin: 0; }
@@ -357,11 +357,12 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   .main-nav.open { display: flex; }
   .main-nav a { padding: 12px 13px; border-radius: 10px; }
   .main-nav a:hover { background: rgba(82,242,194,.07); }
-  .hero { padding-top: 32px; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-copy { padding-bottom: 0; }
+  .hero { padding-top: 20px; }
+  .hero-shell { border-radius: 28px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-copy { padding: 28px 24px 8px; }
   .hero h1 { font-size: clamp(3rem, 12vw, 5rem); }
-  .hero-visual { min-height: 520px; margin-top: -40px; }
+  .hero-visual { min-height: 500px; margin-top: 0; padding: 0 18px 18px; }
   .hero-visual img { max-height: 540px; }
   .badge-top { right: 2%; top: 14%; }
   .badge-bottom { left: 2%; bottom: 10%; }
@@ -404,6 +405,7 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   .identity-domains { grid-template-columns: 1fr; }
   .identity-domain { min-height: 48px; }
   .container { width: min(calc(100% - 24px), var(--container)); }
+  .hero-shell { border-radius: 24px; }
   .brand-text strong { font-size: .91rem; }
   .brand-text small { font-size: .59rem; }
   .brand-mark { width: 37px; height: 37px; border-radius: 12px; }
@@ -414,11 +416,11 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   .hero-actions .btn { width: 100%; }
   .hero-trust { grid-template-columns: 1fr; gap: 8px; }
   .hero-trust > div { border-top: 0; background: rgba(255,255,255,.025); border-radius: 12px; padding: 10px; }
-  .hero-visual { min-height: 430px; margin-top: -10px; }
-  .hero-visual img { max-height: 440px; }
+  .hero-visual { min-height: 405px; margin-top: 0; padding: 0 14px 14px; }
+  .hero-visual img { max-height: 410px; border-radius: 22px; }
   .hero-badge { transform: scale(.86); }
-  .badge-top { right: -20px; top: 13%; }
-  .badge-bottom { left: -18px; bottom: 8%; }
+  .badge-top { right: 24px; top: 22px; }
+  .badge-bottom { left: 22px; bottom: 26px; }
   .benefit-ribbon { grid-template-columns: 1fr; }
   .benefit-ribbon article, .benefit-ribbon article:last-child { grid-column: auto; }
   .catalog-section { padding-top: 100px; }
@@ -488,7 +490,7 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
         <a href="#catalogo">Catálogo</a>
         <a href="#beneficios">Beneficios</a>
         <a href="#pagos">Pagos</a>
-        <a href="#dominios">Dominios</a>
+        <a href="#dominios-detalle">Dominios</a>
         <a href="#como-comprar">¿Cómo comprar?</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -501,7 +503,9 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container">
+        <div class="hero-shell">
+      <div class="hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow"><span></span> ALQUILER PREMIUM • CUENTAS COMPLETAS</div>
           <h1>Más control.<br><em>Más entretenimiento.</em></h1>
@@ -512,11 +516,6 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <a class="btn btn-secondary" href="#catalogo">Ver catálogo</a>
           </div>
 
-          <div class="hero-trust">
-            <div><b>⚡</b><span><strong>Activación rápida</strong><small>Consulta disponibilidad</small></span></div>
-            <div><b>🛡</b><span><strong>Soporte</strong><small>Durante el servicio</small></span></div>
-            <div><b>↻</b><span><strong>Renovable</strong><small>Continúa mes a mes</small></span></div>
-          </div>
         </div>
 
         <div class="hero-visual reveal">
@@ -533,28 +532,14 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
         </div>
       </div>
 
-      <div class="container identity-strip reveal" id="dominios">
-        <div class="identity-intro">
-          <span class="identity-seal" aria-hidden="true">◆</span>
-          <div class="identity-copy">
-            <small>IDENTIDAD DIGITAL WORLDSTREAMINGOFF</small>
-            <strong>Dominios oficiales</strong>
-            <span>Estos son los dominios propios que WorldStreamingOFF utiliza en su operación.</span>
-          </div>
-        </div>
-        <div class="identity-domains" aria-label="Dominios oficiales">
-          <button class="identity-domain" data-copy="@wsperu.net" type="button"><b>✓</b><span><strong>@wsperu.net</strong><small>Dominio oficial</small></span></button>
-          <button class="identity-domain" data-copy="@wsprexo.com" type="button"><b>✓</b><span><strong>@wsprexo.com</strong><small>Dominio oficial</small></span></button>
-          <button class="identity-domain" data-copy="@zunape.com" type="button"><b>✓</b><span><strong>@zunape.com</strong><small>Dominio oficial</small></span></button>
-        </div>
-      </div>
-
       <div class="container benefit-ribbon" id="beneficios">
         <article><span>🤖</span><div><strong>Bot para códigos</strong><small>Accesos y verificaciones más rápidas</small></div></article>
         <article><span>🔐</span><div><strong>Restablecimiento</strong><small>Opciones para recuperar contraseña</small></div></article>
         <article><span>🔄</span><div><strong>Cuentas renovables</strong><small>Continúa disfrutando sin cambiar de plan</small></div></article>
         <article><span>🎧</span><div><strong>Soporte directo</strong><small>Atención por nuestros canales oficiales</small></div></article>
         <article><span>⚡</span><div><strong>Activación rápida</strong><small>Procesamos tu pedido al confirmar</small></div></article>
+      </div>
+        </div>
       </div>
     </section>
 
@@ -833,7 +818,7 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
         <strong>Explorar</strong>
         <a href="#catalogo">Catálogo</a>
         <a href="#pagos">Métodos de pago</a>
-        <a href="#dominios">Dominios oficiales</a>
+        <a href="#dominios-detalle">Dominios oficiales</a>
         <a href="#faq">Preguntas frecuentes</a>
       </div>
       <div class="footer-links">
