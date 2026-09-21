@@ -376,6 +376,28 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
 }
 
 @media (max-width: 560px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  body { position: relative; }
+  main, header, footer, section { width: 100%; max-width: 100%; overflow-x: clip; }
+  .container { width: calc(100% - 24px); max-width: 100%; margin-inline: auto; }
+  .hero-grid, .hero-copy, .hero-visual, .benefit-ribbon, .catalog-grid, .trust-grid, .steps-grid, .support-grid, .faq-grid, .footer-grid,
+  .section-heading, .trust-card, .support-copy, .support-panel, .service-card, .payment-item, .domain-chip, .final-cta-inner {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .btn { max-width: 100%; white-space: normal; text-align: center; }
+  .eyebrow { max-width: 100%; white-space: normal; flex-wrap: wrap; line-height: 1.35; }
+  .hero h1 { font-size: clamp(2.55rem, 13vw, 3.2rem); overflow-wrap: anywhere; }
+  .hero-lead, .section-heading p, .trust-card p, .support-copy p, .faq-intro p, .final-cta p { overflow-wrap: anywhere; }
+  .hero-visual { width: 100%; overflow: hidden; padding-inline: 0; }
+  .hero-visual img { width: auto; max-width: 100%; height: auto; object-fit: contain; }
+  .hero-badge { max-width: calc(100% - 16px); transform: scale(.82); }
+  .badge-top { right: 0; }
+  .badge-bottom { left: 0; }
+  .catalog-tag { max-width: 100%; white-space: normal; }
+  .payment-data { min-width: 0; }
+  .payment-data strong, .payment-data span, .domain-chip, .domain-chip * { overflow-wrap: anywhere; word-break: break-word; }
+  .domain-chip { grid-template-columns: 32px minmax(0, 1fr) auto; }
   .identity-strip { padding: 14px; border-radius: 18px; gap: 13px; }
   .identity-intro { align-items: flex-start; }
   .identity-seal { width: 42px; height: 42px; flex-basis: 42px; border-radius: 13px; }
@@ -416,7 +438,26 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
   .footer-bottom { flex-direction: column; }
   .floating-whatsapp b { display: none; }
   .floating-whatsapp { width: 52px; height: 52px; padding: 0; justify-content: center; }
+
+  /* Ajuste final para móviles: evita cualquier desborde horizontal */
+  html, body { width: 100% !important; max-width: 100vw !important; overflow-x: hidden !important; }
+  .container { width: calc(100% - 24px) !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+  .hero-grid, .hero-copy, .hero-visual, .benefit-ribbon, .catalog-grid, .trust-grid, .steps-grid, .support-grid, .faq-grid, .footer-grid,
+  .identity-strip, .identity-domains, .identity-domain, .service-card, .trust-card, .payment-item, .domain-chip, .support-copy, .support-panel, .final-cta-inner {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .hero h1 { font-size: clamp(2.45rem, 12.5vw, 3.05rem) !important; }
+  .hero-visual { overflow: hidden !important; }
+  .hero-visual img { max-width: 100% !important; height: auto !important; object-fit: contain; }
+  .hero-badge { transform: scale(.80) !important; max-width: calc(100% - 8px) !important; }
+  .badge-top { right: 0 !important; }
+  .badge-bottom { left: 0 !important; }
+  .payment-data, .identity-domain div, .domain-chip { min-width: 0; }
+  .payment-data strong, .payment-data span, .identity-domain strong, .identity-domain small, .domain-chip, .domain-chip * { overflow-wrap: anywhere; word-break: break-word; }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
@@ -889,3 +930,4 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
