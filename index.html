@@ -142,7 +142,7 @@ img { display: block; max-width: 100%; }
 .catalog-tag { border: 1px solid rgba(82,242,194,.2); color: var(--mint); background: rgba(82,242,194,.06); padding: 10px 14px; border-radius: 999px; font-size: .78rem; white-space: nowrap; }
 
 .catalog-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.service-card { background: linear-gradient(180deg, rgba(16,43,53,.9), rgba(7,24,31,.94)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.14); transition: .25s ease; position: relative; }
+.service-card { background: linear-gradient(180deg, rgba(16,43,53,.9), rgba(7,24,31,.94)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.14); transition: .25s ease; position: relative; display: flex; flex-direction: column; }
 .service-card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 0%, rgba(82,242,194,.09), transparent 28%); pointer-events: none; }
 .service-card:hover { transform: translateY(-6px); border-color: rgba(82,242,194,.28); box-shadow: 0 24px 55px rgba(0,0,0,.25); }
 .service-card.featured { box-shadow: 0 0 0 1px rgba(82,242,194,.28), 0 18px 42px rgba(0,0,0,.18); }
@@ -163,13 +163,18 @@ img { display: block; max-width: 100%; }
 .paramount-mark, .crunch-mark, .spotify-dot { font-size: 1.55rem; }
 .prime-smile { position: absolute; margin-top: 36px; margin-left: 40px; font-size: 1.15rem; }
 .pill { position: absolute; top: 10px; right: 10px; background: rgba(3, 18, 18, .7); color: var(--mint); border: 1px solid rgba(82,242,194,.25); border-radius: 999px; font-size: .55rem; padding: 4px 7px; letter-spacing: .08em; }
-.service-body { padding: 18px; }
+.service-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
 .service-body h3 { margin: 0 0 8px; font-size: 1rem; }
 .price { display: flex; align-items: baseline; gap: 8px; margin: 4px 0 10px; }
 .price strong { font-size: 1.23rem; color: var(--mint); }
 .price span { color: rgba(255,255,255,.3); }
 .price b { font-size: .95rem; }
-.service-body p { color: var(--muted); font-size: .75rem; min-height: 37px; margin: 0 0 16px; }
+ .service-body p { color: var(--muted); font-size: .75rem; min-height: 37px; margin: 0 0 10px; }
+.service-specs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 15px; min-height: 48px; align-content: flex-start; }
+.service-specs span { display: inline-flex; align-items: center; gap: 5px; min-height: 24px; padding: 4px 7px; border-radius: 999px; background: rgba(82,242,194,.065); border: 1px solid rgba(82,242,194,.13); color: #d9f8ef; font-size: .61rem; line-height: 1.05; white-space: nowrap; }
+.service-specs span::before { content: "✓"; color: var(--mint); font-weight: 900; font-size: .62rem; }
+.service-btn { margin-top: auto; }
+.spec-note { margin-top: 18px; color: var(--muted); font-size: .72rem; text-align: center; }
 .service-btn { min-height: 40px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(82,242,194,.25); border-radius: 12px; padding: 0 12px; color: var(--mint); font-size: .79rem; font-weight: 800; background: rgba(82,242,194,.05); position: relative; z-index: 2; }
 .service-btn:hover { background: var(--mint); color: #05251b; }
 
@@ -436,7 +441,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Max Platino</h3>
               <div class="price"><strong>S/ 10</strong><span>|</span><b>$3.00</b></div>
-              <p>Cuenta completa renovable con soporte.</p>
+              <p>Plan Platino para una experiencia de máxima calidad.</p>
+              <div class="service-specs"><span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span></div>
               <a class="service-btn" data-service="Max Platino" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -446,7 +452,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Max Estándar</h3>
               <div class="price"><strong>S/ 7</strong><span>|</span><b>$2.10</b></div>
-              <p>Cuenta completa con renovación disponible.</p>
+              <p>Plan Estándar equilibrado para uso cotidiano.</p>
+              <div class="service-specs"><span>2 simultáneos</span><span>Full HD 1080p</span><span>30 descargas</span></div>
               <a class="service-btn" data-service="Max Estándar" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -456,7 +463,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Paramount+ Basic</h3>
               <div class="price"><strong>S/ 5</strong><span>|</span><b>$1.50</b></div>
-              <p>Plan Basic en cuenta completa.</p>
+              <p>Plan Basic con acceso completo según las condiciones del plan.</p>
+              <div class="service-specs"><span>1 simultáneo</span><span>Full HD</span><span>Con anuncios</span></div>
               <a class="service-btn" data-service="Paramount+ Basic" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -466,7 +474,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Paramount+ Standard</h3>
               <div class="price"><strong>S/ 7</strong><span>|</span><b>$2.10</b></div>
-              <p>Plan Standard en cuenta completa.</p>
+              <p>Plan Standard con reproducción sin anuncios y descargas.</p>
+              <div class="service-specs"><span>2 simultáneos</span><span>Full HD</span><span>Descargas</span></div>
               <a class="service-btn" data-service="Paramount+ Standard" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -476,7 +485,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Paramount+ Premium</h3>
               <div class="price"><strong>S/ 12</strong><span>|</span><b>$3.60</b></div>
-              <p>Plan Premium con renovación disponible.</p>
+              <p>Plan Premium con prestaciones de imagen y sonido superiores.</p>
+              <div class="service-specs"><span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span></div>
               <a class="service-btn" data-service="Paramount+ Premium" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -486,7 +496,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Disney+ Premium</h3>
               <div class="price"><strong>S/ 24</strong><span>|</span><b>$7.00</b></div>
-              <p>Cuenta completa Premium, renovable.</p>
+              <p>Plan Premium con deportes, descargas y calidad superior.</p>
+              <div class="service-specs"><span>4 simultáneos</span><span>4K UHD / HDR</span><span>Dolby Atmos</span><span>ESPN</span></div>
               <a class="service-btn" data-service="Disney+ Premium" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -496,7 +507,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Spotify Premium</h3>
               <div class="price"><strong>S/ 5</strong><span>|</span><b>$1.50</b></div>
-              <p>Cuenta Premium para uso personal.</p>
+              <p>Plan Premium con audio de alta calidad y reproducción sin anuncios.</p>
+              <div class="service-specs"><span>1 reproducción</span><span>Hasta 24-bit / 44.1 kHz*</span><span>Sin anuncios</span><span>Offline</span></div>
               <a class="service-btn" data-service="Spotify Premium" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -506,7 +518,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Vix Premium</h3>
               <div class="price"><strong>S/ 4</strong><span>|</span><b>$1.20</b></div>
-              <p>Cuenta Premium con acceso completo.</p>
+              <p>Plan Premium para contenido en español, estrenos y canales en vivo.</p>
+              <div class="service-specs"><span>3 simultáneos</span><span>Contenido Premium</span><span>Canales en vivo</span></div>
               <a class="service-btn" data-service="Vix Premium" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -516,7 +529,8 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Crunchyroll Mega Fan</h3>
               <div class="price"><strong>S/ 7</strong><span>|</span><b>$2.10</b></div>
-              <p>Cuenta Mega Fan renovable.</p>
+              <p>Plan Mega Fan con múltiples reproducciones y contenido sin anuncios.</p>
+              <div class="service-specs"><span>4 simultáneos</span><span>Máxima calidad disponible</span><span>Descargas</span></div>
               <a class="service-btn" data-service="Crunchyroll Mega Fan" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
@@ -526,11 +540,13 @@ details p { color: var(--muted); margin: 0; padding: 0 18px 18px; font-size: .86
             <div class="service-body">
               <h3>Amazon Prime</h3>
               <div class="price"><strong>S/ 10</strong><span>|</span><b>$3.00</b></div>
-              <p>Cuenta completa con soporte.</p>
+              <p>Cuenta completa Prime Video para películas, series y contenido compatible.</p>
+              <div class="service-specs"><span>3 simultáneos</span><span>Ultra HD</span><span>Dolby Atmos*</span></div>
               <a class="service-btn" data-service="Amazon Prime" href="#">Solicitar <span>→</span></a>
             </div>
           </article>
         </div>
+        <p class="spec-note">* La calidad de video/audio y algunas funciones dependen del título, país, conexión y dispositivo compatible. En Spotify, la disponibilidad de audio sin pérdida depende de la cuenta, dispositivo y mercado.</p>
       </div>
     </section>
 
